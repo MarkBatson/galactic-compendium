@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: "Aurebesh";
+  src: url("/fonts/Aurebesh.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Din";
+  src: url("/fonts/dinnextw1g.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: "Din", Helvetica, sans-serif;
+  --font-header: "Aurebesh";
+
+  --color-dark-grey: #282727;
+  --color-dark-blue: #06182D;
+  --color-medium-grey: #48494A;
+  --color-light-grey: #999;
+}
+
+@layer base {
+  html {
+    @apply bg-black text-white text-center font-sans
+  }
+}
+
+@layer components {
+  .obscurity-level {
+    --c: white;
+    --g: 4px;
+    --l: 2px;
+    --s: 20px;
+
+    width: 150px;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0px 10px;
+  }
+
+  .obscurity-level::-webkit-slider-thumb {
+    height: var(--s);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 var(--l) inset var(--c);
+    border-image: linear-gradient(90deg, var(--c) 50%, #48494A 0) 0 1/calc(50% - var(--l)/2) 100vw/0 calc(100vw + var(--g));
+    appearance: none;
+    background-color: black;
+  }
+
+  .obscurity-level::-webkit-slider-thumb:active {
+    background-color: black;
+    appearance: none;
+  }
+
+  .obscurity-level::-moz-range-thumb {
+    height: var(--s);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 var(--l) inset var(--c);
+    appearance: none;
+  }
+}
