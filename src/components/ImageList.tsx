@@ -7,7 +7,7 @@ function ImageList({ list }: {list: Array<ListItem>}) {
 
   return (
     <div className="flex flex-wrap justify-center max-w-282.5 ml-auto mr-auto mt-5">
-      {list.map((item, index) => (
+      {list.map((item) => (
         <div
             key={item.name}
             onClick={() => redirect(item.link)}
