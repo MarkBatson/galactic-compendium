@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# Galactic Compendium
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Galactic Compendim
 
-Currently, two official plugins are available:
+![The Archives](public/archives.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A searchable, filterable reference guide to Star Wars species, built as a client-side React application.
 
-## React Compiler
+Live at [www.galacticcompendium.com](https://www.galacticcompendium.com)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
 
-## Expanding the ESLint configuration
+### React 19
+The UI is built with React and broken down into functional components. Modern hooks such `useMemo` are used to enhance the performance.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### TypeScript 6
+The entire codebase is written in TypeScript and configured using the `bundler` module resolution mode, which is optimised for Vite-based projects.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Vite 8
+Vite handles the development server and production bundling. TypeScript compilation is handled by Vite at build time via the `@vitejs/plugin-react` plugin, which uses [Oxc](https://oxc.rs) for fast JSX transforms.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Tailwind CSS v4
+Styling uses Tailwind CSS v4, configured entirely in CSS with no `tailwind.config.js`. Theme tokens (colors and fonts) are defined using `@theme` in `src/index.css`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ESLint + Prettier
+ESLint is configured with `typescript-eslint`, `eslint-plugin-react-hooks`, and `eslint-plugin-react-refresh`. Prettier handles code formatting with `eslint-config-prettier` used to disable any conflicting ESLint rules.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### GitHub Actions + GitHub Pages
+The app is deployed to GitHub Pages via a GitHub Actions workflow that triggers on every push to `main`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Claude Code
+This app was completely built by me while using claude code as a tool to enhance and expedite the development process. The app has a `CLAUDE.md` config that gives Claude context about the app.
