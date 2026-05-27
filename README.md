@@ -1,6 +1,6 @@
 # Galactic Compendium
 
-Welcome to the Galactic Compendim
+Welcome to the Galactic Compendium
 
 ![The Archives](public/archives.png)
 
